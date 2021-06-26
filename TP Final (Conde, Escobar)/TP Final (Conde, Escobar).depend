@@ -27,3 +27,31 @@
 	<sys/types.h>
 	<sys/time.h>
 
+1624734332 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\main.cpp
+	<iostream>
+	<cstdlib>
+	<stdlib.h>
+	<time.h>
+	"rlutil.h"
+
+1624727780 c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1624734541 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\funciones.cpp
+	<iostream>
+	<cstdlib>
+	<stdlib.h>
+	<time.h>
+	"rlutil.h"
+
