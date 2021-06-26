@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include"rlutil.h"
+#include<conio.h>
+#include<stdio.h>
+#include <math.h>
 
 using namespace std;
 using namespace rlutil;
@@ -40,28 +43,27 @@ cout<<endl<< "ingrese uno de los 3 numeros para selecionar el modo de juego :";
 cin>>n1;
 cout<<endl<< "-----------------------------------------------------------------"<<endl;
 
-while(n1==1 || n1==2 || n1==3){
+while(n1<0 || n1>4 || isnan(n1)){
+        if(kbhit){
+            n1= getch();
+            if(n1=='1' || n1=='2'|| n1=='3' || n1== '4'){
+                system("cls");
+            } else {
+                cout << "Ingrese un numero correcto del 1 al 4" << endl;
+                cin >> n1;
+            }
 
-switch(n1){
-    case 1:
-        unJugador();
-    break;
-    case 2:
-
-    break;
-    case 3:
-
-    break;
-
-    default:
-        cout<< "el numero no es correcto"<<endl;
-        break;
+            switch(n1){
+                case '1': unJugador() ;break;
+                case '2': cout << "sdsfd";break;
+                case '3': cout << "foikwerfnk";break;
+                case '4': cout << "fede" ;break;
+            }
 }
-
 }
-
 }
 
 void unJugador() {
+    cout << "hola";
 
 }

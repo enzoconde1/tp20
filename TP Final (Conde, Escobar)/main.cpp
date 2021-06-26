@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include"rlutil.h"
+#include<conio.h>
+#include<stdio.h>
 
 using namespace std;
 using namespace rlutil;
