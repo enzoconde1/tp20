@@ -11,6 +11,9 @@ using namespace std;
 using namespace rlutil;
 
 void unJugador();
+void dosJugadores();
+void puntaje();
+void modoSimulacion();
 
 void Menu(){
 char n1;
@@ -44,8 +47,6 @@ cin>>n1;
 cout<<endl<< "-----------------------------------------------------------------"<<endl;
 
 while(n1<0 || n1>4 || isnan(n1)){
-        if(kbhit){
-            n1= getch();
             if(n1=='1' || n1=='2'|| n1=='3' || n1== '4'){
                 system("cls");
             } else {
@@ -54,16 +55,31 @@ while(n1<0 || n1>4 || isnan(n1)){
             }
 
             switch(n1){
-                case '1': unJugador() ;break;
-                case '2': cout << "sdsfd";break;
-                case '3': cout << "foikwerfnk";break;
-                case '4': cout << "fede" ;break;
+                case '1': unJugador(); break;
+                case '2': dosJugadores(); break;
+                case '3': puntaje(); break;
+                case '4': modoSimulacion() ; break;
             }
-}
+
 }
 }
 
 void unJugador() {
     cout << "hola";
+
+}
+
+void dosJugadores() {
+    cout << "hola2";
+
+}
+
+void puntaje() {
+    cout << "hola3";
+
+}
+
+void modoSimulacion() {
+    cout << "hola4";
 
 }
