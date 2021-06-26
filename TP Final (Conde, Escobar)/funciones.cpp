@@ -7,6 +7,7 @@
 using namespace std;
 using namespace rlutil;
 
+void unJugador();
 
 void Menu(){
 char n1;
@@ -17,7 +18,6 @@ cout<< "-----------------------------------------------------------------------"
 system("pause");
 cout<<endl<< "-----------------------------------------------------------------"<<endl;
 system("cls");
-void Opciones();
 }
 
 void Opciones(){
@@ -37,7 +37,7 @@ cout<<endl<< "-----------------------------------------------------------------"
 
 switch(n1){
     case 1:
-
+        unJugador();
     break;
     case 2:
 
@@ -50,5 +50,9 @@ switch(n1){
         cout<< "el numero no es correcto"<<endl;
         break;
 }
+
+}
+
+void unJugador() {
 
 }

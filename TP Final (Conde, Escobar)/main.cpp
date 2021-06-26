@@ -7,12 +7,12 @@
 using namespace std;
 using namespace rlutil;
 
-
 void Opciones();
 void Menu();
 
 int main() {
 
 Menu();
+Opciones();
     return 0;
 }
