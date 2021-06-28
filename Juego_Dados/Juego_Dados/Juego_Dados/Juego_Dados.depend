@@ -159,35 +159,3 @@
 	"funciones.h"
 	"rlutil.h"
 
-1624650109 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\juego_dados\juego_dados\juego_dados\funciones.cpp
-	<iostream>
-	<conio.h>
-	<stdio.h>
-	<time.h>
-	"funciones.h"
-	"rlutil.h"
-
-1605107035 c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\juego_dados\juego_dados\juego_dados\funciones.h
-
-1604829066 c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\juego_dados\juego_dados\juego_dados\rlutil.h
-	<iostream>
-	<string>
-	<cstdio>
-	<stdio.h>
-	<string.h>
-	<windows.h>
-	<conio.h>
-	<termios.h>
-	<unistd.h>
-	<sys/ioctl.h>
-	<sys/types.h>
-	<sys/time.h>
-
-1605102398 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\juego_dados\juego_dados\juego_dados\main.cpp
-	<iostream>
-	<conio.h>
-	<stdio.h>
-	<time.h>
-	"funciones.h"
-	"rlutil.h"
-
