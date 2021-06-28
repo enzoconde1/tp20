@@ -5,6 +5,7 @@
 #include"rlutil.h"
 #include<conio.h>
 #include<stdio.h>
+#include<math.h>
 
 using namespace std;
 using namespace rlutil;
@@ -15,7 +16,6 @@ void puntaje();
 void modoSimulacion();
 
 void Menu(){
-    char input;
     cout<< "Bienvenido al Juego de 20 :"<<endl;
     cout<< "-----------------------------------------------------------------------"<<endl;
     system("pause");
@@ -23,14 +23,9 @@ void Menu(){
     system("cls");
 }
 
-
-
-
 void Opciones(){
     char input;
-
     cout << "Seleccione modo de juego :"<<endl;
-
     cout << "-----------------------------------------------------------------------"<<endl;
     cout << "Ingrese 1 para modo de juego de una persona"<<endl;
     cout << "Ingrese 2 para modo de juego para dos personas"<<endl;
@@ -44,11 +39,11 @@ void Opciones(){
     input = getch();
     cout<<endl<< "-----------------------------------------------------------------"<<endl;
 
-    while(input<0 || input>4){
+    while(input<0 || input>4 || isnan(input)){
         if(input=='1' || input=='2'|| input=='3' || input== '4'){
             system("cls");
         } else {
-            cout << "Ingrese un numero correcto del 1 al 4: ";
+            cout << "Ingrese un numero correcto del 1 al 4: " <<endl;
             input = getch();
         }
         switch(input){
