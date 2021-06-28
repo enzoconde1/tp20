@@ -5,7 +5,6 @@
 #include"rlutil.h"
 #include<conio.h>
 #include<stdio.h>
-#include <math.h>
 
 using namespace std;
 using namespace rlutil;
@@ -45,7 +44,7 @@ void Opciones(){
     input = getch();
     cout<<endl<< "-----------------------------------------------------------------"<<endl;
 
-    while(input<0 || input>4 || isnan(input)){
+    while(input<0 || input>4){
         if(input=='1' || input=='2'|| input=='3' || input== '4'){
             system("cls");
         } else {
