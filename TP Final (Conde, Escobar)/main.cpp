@@ -2,13 +2,10 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <time.h>
-<<<<<<< HEAD
 #include"rlutil.h"
 #include<conio.h>
 #include<stdio.h>
 
-=======
->>>>>>> parent of b038649 (actualizacion)
 using namespace std;
 
 void Opciones(char n1){
@@ -43,21 +40,10 @@ switch(n1){
 
 }
 
-<<<<<<< HEAD
 void Opciones();
-void Menu();
-=======
 
->>>>>>> parent of b038649 (actualizacion)
-
-
-<<<<<<< HEAD
-Menu();
-Opciones();
-=======
 int main()
 {char n1;
 Opciones(n1);
->>>>>>> parent of b038649 (actualizacion)
     return 0;
 }
