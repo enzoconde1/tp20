@@ -8,6 +8,7 @@
 #include<math.h>
 
 using namespace std;
+#include"funciones.h"
 using namespace rlutil;
 
 void unJugador();
@@ -15,35 +16,45 @@ void dosJugadores();
 void puntaje();
 void modoSimulacion();
 
-void Menu(){
+void Inicio(){
+    gotoxy(15,5);
     cout<< "Bienvenido al Juego de 20 :"<<endl;
-    cout<< "-----------------------------------------------------------------------"<<endl;
+    gotoxy(10,7);
     system("pause");
-    cout<<endl<< "-----------------------------------------------------------------"<<endl;
     system("cls");
 }
 
-void Opciones(){
+void Menu(){
     char input;
-    cout << "Seleccione modo de juego :"<<endl;
-    cout << "-----------------------------------------------------------------------"<<endl;
-    cout << "Ingrese 1 para modo de juego de una persona"<<endl;
-    cout << "Ingrese 2 para modo de juego para dos personas"<<endl;
-    cout << "Ingrese 3 para mostrar puntuacion mas alta" << endl;
-    cout << "Ingrese 4 para el modo simulacion"<<endl;
-    system("pause");
 
+    recuadro(2, 4, 55, 20, 3, 5);
+    gotoxy(15,5);
+    cout << "Menu de Inicio :"<<endl;
+    gotoxy(12,7);
+    cout << "1. Modo UN JUGADOR"<<endl;
+    gotoxy(12,8);
+    cout << "2. Modo DOS JUGADORES"<<endl;
+    gotoxy(12,9);
+    cout << "3. Mostrar PUNTUACION" << endl;
+    gotoxy(12,10);
+    cout << "4. Modo SIMULACION"<<endl;
 
-    cout<<endl<< "------------------------------------------------------------------"<<endl;
-    cout<<endl<< "Ingrese uno de los 4 numeros para ingresar :";
+    gotoxy(5,12);
+    cout<< "Ingrese uno de los 4 numeros para empezar :";
     input = getch();
-    cout<<endl<< "-----------------------------------------------------------------"<<endl;
 
     while(input<0 || input>4 || isnan(input)){
         if(input=='1' || input=='2'|| input=='3' || input== '4'){
             system("cls");
-        } else {
-            cout << "Ingrese un numero correcto del 1 al 4: " <<endl;
+        }
+        else {
+            system("cls");
+            system("color B1");
+            gotoxy(20,8);
+            setColor(RED);
+            cout << "¡Atencion!";
+            gotoxy(12,10);
+            cout << "Ingrese un numero correcto";
             input = getch();
             system("cls");
         }
@@ -53,7 +64,6 @@ void Opciones(){
             case '3': puntaje(); break;
             case '4': modoSimulacion() ; break;
         }
-
     }
 }
 
@@ -71,6 +81,8 @@ void unJugador() {
     RondasPerdidas=0,
     RondasSinPuntos=0;
     char Nombre[30];
+
+    system("color B1");
 
     srand(time(NULL));
 
@@ -141,7 +153,8 @@ void unJugador() {
         if(TotalDePuntos>=20){
             cout<< "Felicidades ganaste : "<<Aposto<<endl;
             TotalGanado=TotalGanado+Aposto;
-        } else {
+        }
+        else {
             cout<< "lastima perdiste: "<<Aposto<<endl;
             RondasPerdidas=RondasPerdidas+1;
             Aposto=0;
@@ -163,7 +176,8 @@ void unJugador() {
 
     if(RondasPerdidas==0){
         cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
-    } else {
+    }
+    else {
         cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la proxima"<<endl;
     }
 
@@ -171,7 +185,7 @@ void unJugador() {
     system("pause");
 
     system("cls");
-    Opciones();
+    Menu();
 }
 
 void dosJugadores() {
@@ -186,5 +200,24 @@ void puntaje() {
 
 void modoSimulacion() {
     cout << "hola4";
+
+}
+
+void Recuadro(int x, int y, int ancho, int alto){
+
+    for (int i = x; i <= x + ancho; i++) {
+        gotoxy(i, y);
+        cout << '-';
+        gotoxy(i, y + alto);
+        cout << '-';
+    }
+
+    for (int i = y; i <= y + alto; i++) {
+        gotoxy(x, i);
+        cout << '|';
+        gotoxy(x+ancho, i);
+        cout << '|';
+    }
+
 
 }
