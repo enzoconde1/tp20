@@ -165,8 +165,9 @@ cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la
 }
 cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
 
+    system("pause");
 
-
+Opciones();
 }
 
 void dosJugadores() {
