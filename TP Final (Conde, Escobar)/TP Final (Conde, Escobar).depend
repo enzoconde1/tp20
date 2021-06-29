@@ -31,12 +31,14 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1624734332 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\main.cpp
+1624905901 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\main.cpp
 	<iostream>
 	<cstdlib>
 	<stdlib.h>
 	<time.h>
 	"rlutil.h"
+	<conio.h>
+	<stdio.h>
 
 1624727780 c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\rlutil.h
 	<iostream>
@@ -52,10 +54,13 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1624734541 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\funciones.cpp
+1624909146 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\funciones.cpp
 	<iostream>
 	<cstdlib>
 	<stdlib.h>
 	<time.h>
 	"rlutil.h"
+	<conio.h>
+	<stdio.h>
+	<math.h>
 
