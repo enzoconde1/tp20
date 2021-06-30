@@ -18,7 +18,7 @@ void modoSimulacion();
 void NumerosAleatorios();
 
 void NumerosAleatorios(int giro){
-int v[15],i;
+int v[5],i;
  srand(time(NULL));
  for(i=0;i<giro;i++){
     v[i]= (rand()%6)+1;
