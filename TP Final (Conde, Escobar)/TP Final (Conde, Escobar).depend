@@ -8,7 +8,7 @@
 	<stdio.h>
 	"rlutil.h"
 
-1625010803 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones.cpp
+1625024975 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones.cpp
 	<iostream>
 	<cstdlib>
 	<stdlib.h>
@@ -69,4 +69,10 @@
 1625010094 c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones.h
 	<iostream>
 	<windows.h>
+
+1624991073 c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones2.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
 
