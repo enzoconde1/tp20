@@ -15,16 +15,32 @@ void unJugador();
 void dosJugadores();
 void puntaje();
 void modoSimulacion();
-void NumerosAleatorios();
 
-void NumerosAleatorios(int giro){
-int v[5],i;
- srand(time(NULL));
- for(i=0;i<giro;i++){
-    v[i]= (rand()%6)+1;
-    cout<<v[i]<<endl;
- }
+void tiroDePuntaje(int Total){
+    int v[5],i,j, valor, contador=0;
+
+     for(i=0;i<5;i++){
+        v[i]= (rand()%6)+1;
+        cout<<v[i]<<endl;
+    }
+
+    switch (Total){
+        case 20: valor=1; break;
+        case 21: valor=2; break;
+        case 22: valor=3; break;
+        case 23: valor=4; break;
+        case 24: valor=5; break;
+        default: valor=6; break;
+    }
+
+    for(i=0;i<5;i++){
+        if (v[i]==valor){
+            contador++;
+        }
+        cout << contador;
+    }
 }
+
 
 void Inicio(){
     gotoxy(15,5);
@@ -83,18 +99,20 @@ void unJugador() {
     vueltas=5,
     tirada,
     giro=5,
-    MaximoDado,
     dados,
-    TotalDePuntos=0,
-    TotalGanado=0,
-    RondasPerdidas=0,
-    RondasSinPuntos=0;
+    v[5],
+    i,
+    Max,
+    Total=0;
     char nombre[30];
+
+    srand(time(NULL));
 
     system("color B1");
 
     cout << "Modo un Jugador" << endl;
     cout<< "Ingrese nombre : ";
+    fflush(stdin);
     cin.getline(nombre,30);
     cout<< "-------------------------------------"<<endl;
     cout<< "Ingrese rondas : ";
@@ -110,57 +128,33 @@ void unJugador() {
         for(tirada=1;tirada<=5;tirada++){
             cout<< "-------------------------------------"<<endl;
             cout<< "tirada de dados #"<<tirada<<": "<<endl;
-            NumerosAleatorios(giro);
+
+            for(i=0;i<giro;i++){
+                v[i]= (rand()%6)+1;
+                cout<<v[i]<<endl;
+
+                if(i==0){
+                    dados=v[i];
+                }
+                if(v[i]>dados){
+                    dados=v[i];
+                }
+            }
+
+            Max=dados;
+            cout<< "el maximo dado es en esta ronda  : "<<Max<<endl;
+            Total=Total+Max;
             system("pause");
             system("cls");
+
             giro=giro-1;
         }
-
-        TotalDePuntos=TotalDePuntos+MaximoDado;
-
-        if(tirada==0){
-            tirada=5;
-            MaximoDado=0;
-        }
-
     }
-
-    system("cls");
-        cout<<endl<< "el total de puntos es: "<<TotalDePuntos<<endl;
-
-    if(TotalDePuntos>=20){
-            cout<< "Felicidades ganaste : "<<apuesta<<endl;
-            TotalGanado=TotalGanado+apuesta;
-        }
-        else {
-            cout<< "lastima perdiste: "<<apuesta<<endl;
-            RondasPerdidas=RondasPerdidas+1;
-            apuesta=0;
-        }
-
-        if(apuesta==0){
-            RondasSinPuntos=RondasSinPuntos+1;
-        }
-
-        if(vueltas!=rondas){
-            cout<< "-------------------------------------"<<endl;
-            cout<< "cuanto vas a apostar en la siguiente ronda: ";
-            cin>> apuesta;}
-
-        TotalDePuntos=0;
-
-    cout<<endl<< "Felicidades "<<nombre<< " ganaste en total : "<<TotalGanado<<endl;
-
-    if(RondasPerdidas==0){
-        cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
+    cout<< "el total es : "<< Total <<endl;
+    if (Total >= 20) {
+        tiroDePuntaje(Total);
     }
-    else {
-        cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la proxima"<<endl;
-    }
-
-    cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
     system("pause");
-
     system("cls");
     Menu();
 }
