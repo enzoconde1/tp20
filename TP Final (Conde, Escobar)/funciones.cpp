@@ -16,7 +16,7 @@ void dosJugadores();
 void puntaje();
 void modoSimulacion();
 
-int tiroDePuntaje(int Total, int apuesta){
+int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
     int v[5],i,j, valor, contador=0, apuesta_mult;
 
      for(i=0;i<5;i++){
@@ -38,14 +38,20 @@ int tiroDePuntaje(int Total, int apuesta){
             contador++;
         }
     }
+
+
+
     if(contador!=0){
         apuesta_mult = apuesta * contador;
     }
-else{
+    else{
     apuesta_mult = apuesta;
-}
-    cout << "ganaste: " << apuesta_mult << endl;
+    }
 
+
+
+    cout << "ganaste: " << apuesta_mult << endl;
+    TotalApuesta=TotalApuesta+apuesta;
     return apuesta_mult;
 }
 
@@ -112,7 +118,8 @@ void unJugador() {
     Total=0,
     RondasSinPuntos=0,
     RondasPerdidas=0,
-    traerTotal;
+    traerTotal,
+    TotalApuesta=0;
     char nombre[30];
 
     srand(time(NULL));
@@ -161,12 +168,13 @@ void unJugador() {
         if (Total >= 20) {
                 cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
                 system("pause");
-            tiroDePuntaje(Total, apuesta);
-
+                tiroDePuntaje(Total, apuesta, TotalApuesta);
+                TotalApuesta+=apuesta;
         }
         else{
             cout<< "lastima perdiste: "<<apuesta<<endl;
             RondasPerdidas=RondasPerdidas+1;
+            TotalApuesta=TotalApuesta-apuesta;
             apuesta=0;
         }
 
@@ -184,6 +192,7 @@ void unJugador() {
         if(giro==0)
         giro=5;
         Total=0;
+
         }
 
 
@@ -204,11 +213,14 @@ void unJugador() {
 
         cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
 
+        cout<<endl<<"en total ganaste : "<<TotalApuesta<<endl;
+
+
 
         cout<< endl<<"fin del juego para jugador #1"<<endl;
 
         cout<<endl<< "gracias por jugar "<<nombre<< "!!"<<endl;
-
+        cout<<endl;
         system("pause");
         system("cls");
         Menu();
