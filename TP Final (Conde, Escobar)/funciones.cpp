@@ -51,7 +51,7 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
 
 
     cout << "ganaste: " << apuesta_mult << endl;
-    TotalApuesta=TotalApuesta+apuesta;
+
     return apuesta_mult;
 }
 
