@@ -71,11 +71,7 @@ void Menu(){
     cout<< "Ingrese uno de los 4 numeros para empezar :";
     input = getch();
 
-    while(input<0 || input>4 || isnan(input)){
-        if(input=='1' || input=='2'|| input=='3' || input== '4'){
-            system("cls");
-        }
-        else {
+    while(input!='1' && input!='2' && input!='3' && input!='4'){
             system("cls");
             system("color B1");
             gotoxy(20,8);
@@ -85,14 +81,17 @@ void Menu(){
             cout << "Ingrese un numero correcto";
             input = getch();
             system("cls");
-        }
-        switch(input){
+    }
+
+    system("cls");
+
+    switch(input){
             case '1': unJugador(); break;
             case '2': dosJugadores(); break;
             case '3': puntaje(); break;
             case '4': modoSimulacion() ; break;
-        }
     }
+
 }
 
 void unJugador() {
@@ -162,15 +161,21 @@ void unJugador() {
             RondasPerdidas=RondasPerdidas+1;
             apuesta=0;
         }
-        if(apuesta==0){ RondasSinPuntos=RondasSinPuntos+1;
 
-    }
-    if(vueltas!=rondas){
-        cout<< "-------------------------------------"<<endl;
-        cout<< "cuanto vas a apostar en la siguiente ronda: ";
-        cin>> apuesta;}
+        if(apuesta==0){
+            RondasSinPuntos=RondasSinPuntos+1;
+        }
 
-    }
+
+        if(vueltas!=rondas){
+            cout<< "-------------------------------------"<<endl;
+            cout<< "cuanto vas a apostar en la siguiente ronda: ";
+            cin>> apuesta;
+        }
+
+        }
+
+
 
 if(RondasPerdidas==0){
     cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
@@ -179,9 +184,12 @@ else{
 cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la proxima"<<endl;
 
 }
+
+
 cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
 
-
+system("pause");
+Menu();
 
 
 }
