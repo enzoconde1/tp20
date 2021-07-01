@@ -38,7 +38,12 @@ int tiroDePuntaje(int Total, int apuesta){
             contador++;
         }
     }
-    apuesta_mult = apuesta * contador;
+    if(contador!=0){
+        apuesta_mult = apuesta * contador;
+    }
+else{
+    apuesta_mult = apuesta;
+}
     cout << "ganaste: " << apuesta_mult << endl;
 
     return apuesta_mult;
@@ -145,14 +150,17 @@ void unJugador() {
             Max=dados;
             cout<< "el maximo dado es en esta ronda  : "<<Max<<endl;
             Total=Total+Max;
+            dados=0;
             cout<< "el total es : "<< Total <<endl;
             system("pause");
             system("cls");
-
+            Max=0;
             giro=giro-1;
         }
 
-       if (Total >= 20) {
+        if (Total >= 20) {
+                cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
+                system("pause");
             tiroDePuntaje(Total, apuesta);
 
         }
@@ -173,23 +181,37 @@ void unJugador() {
             cin>> apuesta;
         }
 
+        if(giro==0)
+        giro=5;
+        Total=0;
         }
 
 
 
-if(RondasPerdidas==0){
-    cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
-}
-else{
-cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la proxima"<<endl;
+        if(RondasPerdidas==0){
 
-}
+        cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
+
+        }
+
+        else{
+
+        cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la proxima"<<endl;
+
+        }
 
 
-cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
 
-system("pause");
-Menu();
+        cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
+
+
+        cout<< endl<<"fin del juego para jugador #1"<<endl;
+
+        cout<<endl<< "gracias por jugar "<<nombre<< "!!"<<endl;
+
+        system("pause");
+        system("cls");
+        Menu();
 
 
 }
