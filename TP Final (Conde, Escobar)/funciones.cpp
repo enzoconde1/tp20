@@ -411,8 +411,8 @@ void dosJugadores() {
 
            }
            cout<< "el maximo dado es en esta ronda  : "<<Dados<<endl;
-           TotalDadosJ2+=Dados;
-           cout<< "el total es : "<<  TotalDadosJ2 <<endl;
+           TotalDados+=Dados;
+           cout<< "el total es : "<<  TotalDados <<endl;
            Dados=0;
            MenosDados=MenosDados-1;
            system("pause");
@@ -430,7 +430,7 @@ void dosJugadores() {
             cout<< "en total ganaste en esta ronda es : "<<TotalApuestaJ2<<endl;
             TotalDados=0;
             system("pause");}
-             else{
+            else{
             cout<< "lastima perdiste: "<<ApostarJ2<<endl;
             RondasPerdidasJ2=RondasPerdidasJ2+1;
             TotalApuestaJ2=TotalApuestaJ2-ApostarJ2;
@@ -440,13 +440,11 @@ void dosJugadores() {
             if(Resultado==0){
             RondasSinPuntosJ1=RondasSinPuntosJ1+1;
             }
+
             if(Vueltas!=Rondas){
             cout<< "-------------------------------------"<<endl;
             cout<< "cuanto vas a apostar en la siguiente ronda Jugador#1: ";
             cin>> ApostarJ1;
-            system("cls");
-        }
-            if(Vueltas!=Rondas){
             cout<< "-------------------------------------"<<endl;
             cout<< "cuanto vas a apostar en la siguiente ronda jugador#2: ";
             cin>> ApostarJ2;
@@ -504,6 +502,7 @@ void dosJugadores() {
         cout<< "con un total de puntos de : "<<TotalApuestaJ2<<endl;
     }
     system("pause");
+    system("cls");
     Menu();
 }
 
