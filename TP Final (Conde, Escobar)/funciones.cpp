@@ -17,7 +17,7 @@ void puntaje();
 void modoSimulacion();
 
 int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
-    int v[5],i,j, valor, contador=0, apuesta_mult;
+    int v[5],i, valor, contador=0, apuesta_mult;
 
      for(i=0;i<5;i++){
         v[i]= (rand()%6)+1;
@@ -114,11 +114,10 @@ void unJugador() {
     dados=0,
     v[5],
     i,
-    Max,
     Total=0,
     RondasSinPuntos=0,
     RondasPerdidas=0,
-    traerTotal,
+    resultado,
     TotalApuesta=0;
     char nombre[30];
 
@@ -154,22 +153,20 @@ void unJugador() {
                 }
             }
 
-            Max=dados;
-            cout<< "el maximo dado es en esta ronda  : "<<Max<<endl;
-            Total=Total+Max;
+            cout<< "el maximo dado es en esta ronda  : "<<dados<<endl;
+            Total=Total+dados;
             dados=0;
             cout<< "el total es : "<< Total <<endl;
             system("pause");
             system("cls");
-            Max=0;
             giro=giro-1;
         }
 
         if (Total >= 20) {
-                cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
-                system("pause");
-                tiroDePuntaje(Total, apuesta, TotalApuesta);
-                TotalApuesta+=apuesta;
+            cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
+            system("pause");
+            resultado = tiroDePuntaje(Total, apuesta, TotalApuesta);
+            TotalApuesta+=resultado;
         }
         else{
             cout<< "lastima perdiste: "<<apuesta<<endl;
@@ -178,7 +175,7 @@ void unJugador() {
             apuesta=0;
         }
 
-        if(apuesta==0){
+        if(resultado==0){
             RondasSinPuntos=RondasSinPuntos+1;
         }
 
@@ -187,45 +184,34 @@ void unJugador() {
             cout<< "-------------------------------------"<<endl;
             cout<< "cuanto vas a apostar en la siguiente ronda: ";
             cin>> apuesta;
+            system("cls");
         }
 
-        if(giro==0)
-        giro=5;
-        Total=0;
-
+        if(giro==0) {
+            giro=5;
+            Total=0;
         }
 
+    }
 
+    system("pause");
+    system("cls");
 
-        if(RondasPerdidas==0){
+    if(RondasPerdidas==0){
+    cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
+    }
+    else{
+    cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<endl;
+    }
 
-        cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
-
-        }
-
-        else{
-
-        cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<" suerte para la proxima"<<endl;
-
-        }
-
-
-
-        cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
-
-        cout<<endl<<"en total ganaste : "<<TotalApuesta<<endl;
-
-
-
-        cout<< endl<<"fin del juego para jugador #1"<<endl;
-
-        cout<<endl<< "gracias por jugar "<<nombre<< "!!"<<endl;
-        cout<<endl;
-        system("pause");
-        system("cls");
-        Menu();
-
-
+    cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
+    cout<<endl<<"en total ganaste : "<<TotalApuesta<<endl;
+    cout<< endl<<"fin del juego para jugador #1"<<endl;
+    cout<<endl<< "gracias por jugar "<<nombre<< "!!"<<endl;
+    cout<<endl;
+    system("pause");
+    system("cls");
+    Menu();
 }
 
 void dosJugadores() {
