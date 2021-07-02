@@ -215,9 +215,105 @@ void unJugador() {
 }
 
 void dosJugadores() {
-    cout << "hola2";
+  int Rondas,
+    Max[5],
+    TirarDados,
+    ApostarJ1,
+    ApostarJ2,
+    MenosDados=5,
+    Tiradas,
+    Dados=0,
+    TotalDados=0,
+    TotalDadosJ2=0,
+    Vueltas;
+    char NombreJ1[30],
+    NombreJ2[30];
+   srand(time(NULL));
+   cout<< "bienvenido al modo dos jugadores"<<endl;
+
+   cout<< "ingrese el nombre del jugadorN1 :";
+   fflush(stdin);
+   cin.getline(NombreJ1,30);
+   cout<< "ingrese el nombre del jugadorN2 :";
+   cin.getline(NombreJ2,30);
+   cout<< "-------------------------------------"<<endl;
+   cout<< "Ingrese cuantas rondas jugaran los dos jugadores : ";
+   cin>> Rondas;
+   cout<< "-------------------------------------"<<endl;
+   cout<< "ingrese cuanto va apostar Jugador#1 : ";
+   cin>>  ApostarJ1;
+   cout<< "ingrese cuanto va apostar  Jugador#2 : ";
+   cin>> ApostarJ2;
+
+   for(Vueltas=1;Vueltas<=Rondas;Vueltas++){
+       cout<< "jugador#1 :"<<NombreJ1<<endl;
+        cout<< "-------------------------------------"<<endl;
+       cout<< "ronda #"<<Vueltas<<endl;
+
+
+       for(Tiradas=1;Tiradas<=5;Tiradas++){
+           cout<< "-------------------------------------"<<endl;
+           cout<< "Tirada #"<<Tiradas<<endl;
+
+           for(TirarDados=1;TirarDados<=MenosDados;TirarDados++){
+
+                 Max[TirarDados]= (rand()%6)+1;
+                cout<<Max[TirarDados]<<endl;
+
+                if(Max[TirarDados]>Dados){
+                    Dados=Max[TirarDados];
+                }
+
+
+           }
+           cout<< "el maximo dado es en esta ronda  : "<<Dados<<endl;
+           TotalDados+=Dados;
+           cout<< "el total es : "<<  TotalDados <<endl;
+           Dados=0;
+           MenosDados=MenosDados-1;
+       }
+
+
+      TotalDados=0;
+      MenosDados=5;
+
+
+        cout<<endl<<"jugador#2 :"<<NombreJ2<<endl;
+         for(Tiradas=1;Tiradas<=5;Tiradas++){
+
+           cout<< "-------------------------------------"<<endl;
+           cout<< "Tirada #"<<Tiradas<<endl;
+
+           for(TirarDados=1;TirarDados<=MenosDados;TirarDados++){
+
+                 Max[TirarDados]= (rand()%6)+1;
+                cout<<Max[TirarDados]<<endl;
+
+                if(Max[TirarDados]>Dados){
+                    Dados=Max[TirarDados];
+                }
+
+
+           }
+           cout<< "el maximo dado es en esta ronda  : "<<Dados<<endl;
+           TotalDadosJ2+=Dados;
+           cout<< "el total es : "<<  TotalDadosJ2 <<endl;
+           Dados=0;
+           MenosDados=MenosDados-1;
+       }
+       TotalDadosJ2=0;
+        MenosDados=5;
+   }
+
+
+
+
 
 }
+
+
+
+
 
 void puntaje() {
     cout << "hola3";
