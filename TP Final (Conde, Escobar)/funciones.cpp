@@ -272,7 +272,7 @@ void unJugador() {
 }
 
 void dosJugadores() {
-  int Rondas,
+  int Rondas=0,
   Puestos=0,
   RondasPerdidasJ1=0,
   RondasPerdidasJ2=0,
@@ -290,7 +290,7 @@ void dosJugadores() {
     TotalDadosJ2=0,
     TotalApuestaJ1=0,
     TotalApuestaJ2=0,
-    Vueltas;
+    Vueltas=0;
     char NombreJ1[30],
     NombreJ2[30];
    srand(time(NULL));
@@ -311,10 +311,12 @@ void dosJugadores() {
    cin>> ApostarJ2;
     system("pause");
     system("cls");
+
    for(Vueltas=1;Vueltas<=Rondas;Vueltas++){
-       cout<< "jugador#1 :"<<NombreJ1<<endl;
+
+        cout<< "jugador#1 :"<<NombreJ1<<endl;
         cout<< "-------------------------------------"<<endl;
-       cout<< "ronda #"<<Vueltas<<endl;
+        cout<< "ronda #"<<Vueltas<<endl;
 
 
        for(Tiradas=1;Tiradas<=5;Tiradas++){
@@ -357,7 +359,8 @@ void dosJugadores() {
     cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
     Resultado=tiroDePuntajeDosJugadores(ApostarJ1, ApostarJ2, Puestos,  TotalDados);
        TotalApuestaJ1+=Resultado;
-
+       cout<< "en total ganaste en esta ronda es : "<<TotalApuestaJ1<<endl;
+        TotalDados=0;
             system("pause");
         }
     else{
@@ -365,6 +368,7 @@ void dosJugadores() {
             RondasPerdidasJ1=RondasPerdidasJ1+1;
             TotalApuestaJ1=TotalApuestaJ1-ApostarJ1;
             ApostarJ1=0;
+            TotalDados=0;
         }
 
 
@@ -374,12 +378,7 @@ void dosJugadores() {
 
 
 
-if(Vueltas!=Rondas){
-            cout<< "-------------------------------------"<<endl;
-            cout<< "cuanto vas a apostar en la siguiente ronda: ";
-            cin>> ApostarJ1;
-            system("cls");
-        }
+
 
 
       TotalDados=0;
@@ -424,29 +423,36 @@ if(Vueltas!=Rondas){
 
 
 
-            if(TotalDados>=20){
+            if(TotalDados<=20){
             cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
             Resultado=tiroDePuntajeDosJugadores(ApostarJ1, ApostarJ2, Puestos,  TotalDados);
             TotalApuestaJ2+=Resultado;
-
+            cout<< "en total ganaste en esta ronda es : "<<TotalApuestaJ2<<endl;
+            TotalDados=0;
             system("pause");}
              else{
             cout<< "lastima perdiste: "<<ApostarJ2<<endl;
             RondasPerdidasJ2=RondasPerdidasJ2+1;
             TotalApuestaJ2=TotalApuestaJ2-ApostarJ2;
             ApostarJ2=0;
+            TotalDados=0;
             }
             if(Resultado==0){
             RondasSinPuntosJ1=RondasSinPuntosJ1+1;
             }
-
             if(Vueltas!=Rondas){
             cout<< "-------------------------------------"<<endl;
-            cout<< "cuanto vas a apostar en la siguiente ronda: ";
+            cout<< "cuanto vas a apostar en la siguiente ronda Jugador#1: ";
+            cin>> ApostarJ1;
+            system("cls");
+        }
+            if(Vueltas!=Rondas){
+            cout<< "-------------------------------------"<<endl;
+            cout<< "cuanto vas a apostar en la siguiente ronda jugador#2: ";
             cin>> ApostarJ2;
             system("cls");
             }
-            TotalDados=0;
+
             MenosDados=5;
    }
 
@@ -489,7 +495,7 @@ if(Vueltas!=Rondas){
     system("pause");
     system("cls");
 
-    if(TotalApuestaJ1<TotalApuestaJ2){
+    if(TotalApuestaJ1>TotalApuestaJ2){
         cout<< "felicidades el ganador fue :"<<NombreJ1<<endl;
         cout<< "con un total de puntos de : "<<TotalApuestaJ1<<endl;
     }
