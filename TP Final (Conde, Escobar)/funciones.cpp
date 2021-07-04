@@ -794,7 +794,133 @@ void puntaje() {
 }
 
 void modoSimulacion() {
-    cout << "hola4";
+int Apostar=0,
+Rondas,
+Vueltas=0,
+tirada,
+giro=5,
+dados=0,
+RondasPerdidas=0,
+Max[5],
+RondasSinPuntos=0,
+TirarDados,
+Resultado=0,
+Tiradas,
+Dados=0,
+TotalDados=0,
+TotalApuesta=0,
+MenosDados=5;
+char Nombre [30];
+
+cout<< "bienvenido al modo simulacion"<<endl;
+
+ cout<< "ingrese el nombre del jugador :";
+
+   cin.getline(Nombre,30);
+   cout<< "-------------------------------------"<<endl;
+   cout<< "Ingrese cuantas rondas jugaran : ";
+   cin>> Rondas;
+   cout<< "-------------------------------------"<<endl;
+   cout<< "ingrese cuanto va apostar : ";
+   cin>>  Apostar;
+   system("pause");
+    system("cls");
+
+    for(Vueltas=1;Vueltas<=Rondas;Vueltas++){
+
+        cout<< "jugador:"<<Nombre<<endl;
+        cout<< "-------------------------------------"<<endl;
+        cout<< "ronda #"<<Vueltas<<endl;
+
+
+       for(Tiradas=1;Tiradas<=5;Tiradas++){
+           cout<< "-------------------------------------"<<endl;
+           cout<< "Tirada #"<<Tiradas<<endl;
+
+           for(TirarDados=1;TirarDados<=MenosDados;TirarDados++){
+                    cout<< "ingrese el dado#"<<TirarDados<< ": ";
+                  cin>>Max[TirarDados];
+
+
+                if(Max[TirarDados]>Dados){
+                    Dados=Max[TirarDados];
+                }
+
+
+           }
+           cout<< "el maximo dado es en esta ronda  : "<<Dados<<endl;
+           TotalDados+=Dados;
+           cout<< "el total es : "<<  TotalDados <<endl;
+           Dados=0;
+           MenosDados=MenosDados-1;
+           system("pause");
+           system("cls");
+       }
+
+
+
+      TotalDados=0;
+      MenosDados=5;
+
+       if(TotalDados<=20){
+       cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
+
+
+
+       TotalApuesta+=Resultado;
+       cout<< "en total ganaste en esta ronda es : "<<TotalApuesta<<endl;
+        TotalDados=0;
+            system("pause");
+        }
+
+    else{
+            cout<< "lastima perdiste: "<<Apostar<<endl;
+            RondasPerdidas=RondasPerdidas+1;
+            TotalApuesta=TotalApuesta-Apostar;
+            Apostar=0;
+            TotalDados=0;
+        }
+
+
+  if(Resultado==0){
+            RondasSinPuntos=RondasSinPuntos+1;
+        }
+
+
+
+
+            if(Vueltas!=Rondas){
+            cout<< "-------------------------------------"<<endl;
+            cout<< "cuanto vas a apostar en la siguiente ronda : ";
+            cin>> Apostar;
+             cout<< "nombre : "<<Nombre<<endl;}
+
+
+    }
+
+
+ if(RondasPerdidas==0){
+    cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
+    }
+    else{
+    cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<endl;
+    }
+
+    cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
+    cout<<endl<<"en total ganaste : "<<TotalApuesta<<endl;
+    cout<<endl<<"fin del juego"<<endl;
+    cout<<endl<< "gracias por jugar "<<Nombre<< "!!"<<endl;
+
+    system("pause");
+    system("cls");
+
+
+    system("pause");
+    system("cls");
+
+
+
+
 
 }
 

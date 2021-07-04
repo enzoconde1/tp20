@@ -34,7 +34,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1625016521 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\main.cpp
+1625358934 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\main.cpp
 	<iostream>
 	<cstdlib>
 	<stdlib.h>
@@ -57,7 +57,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1625263818 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\funciones.cpp
+1625358934 source:c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\funciones.cpp
 	<iostream>
 	<cstdlib>
 	<stdlib.h>
@@ -67,6 +67,7 @@
 	<stdio.h>
 	<math.h>
 	"funciones.h"
+	"ascii.h"
 
 1625010094 c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones.h
 	<iostream>
@@ -83,4 +84,6 @@
 	<windows.h>
 
 1624991063 c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\ascii.h
+
+1624992228 c:\users\feder\desktop\todo facultad\laboratorio de computacion 1\tp final\tp final (conde, escobar)\ascii.h
 
