@@ -19,7 +19,7 @@ void modoSimulacion();
 void tiroDePuntajeDosJugadores();
 
 int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
-  int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
+    int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
 
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
@@ -28,9 +28,9 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
 
         gotoxy(48,7);
         cout<< "<< Tiro de puntaje >>";
-
-        cout<< "ingrese dado#"<<i+1<< " : "<<endl;
-
+        gotoxy(46,9);
+        cout<< "Ingrese el dado >> "<<i+1<< " >> ";
+        cin >> v[i];
 
         if(v[i]==1){
             dado1(agregarX,12);
@@ -80,12 +80,6 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
     else{
         apuesta_mult = Apostar;
     }
-
-
-    gotoxy(55,22);
-    cout << "Ganaste: " << apuesta_mult;
-    gotoxy(40,25);
-    system("pause");
 
     return apuesta_mult;
 
@@ -173,7 +167,7 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
 
     for(i=0;i<5;i++){
 
-        gotoxy(48,7);
+        gotoxy(49,7);
         cout<< "<< Tiro de puntaje >>";
 
         v[i]= (rand()%6)+1;
@@ -229,7 +223,7 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
 
 
     gotoxy(55,22);
-    cout << "Ganaste: " << apuesta_mult;
+    cout << "Ganaste >> " << apuesta_mult;
     gotoxy(40,25);
     system("pause");
 
@@ -338,9 +332,11 @@ void unJugador() {
         for(tirada=0;tirada<5;tirada++){
 
             recuadro(6, 2, 109, 27, 15, 4);
-            gotoxy(55,5);
+            gotoxy(54,5);
+            cout<< "Jugador >> "<<nombre;
+            gotoxy(55,7);
             cout<< "Ronda >> "<<vueltas;
-            gotoxy(54,7);
+            gotoxy(54,9);
             cout<< "Tirada >>> "<<tirada+1;
 
             for(i=0;i<giro;i++){
@@ -459,20 +455,20 @@ void unJugador() {
     cout<<"Puntaje acumulado >> "<<TotalApuesta;
 
     if(RondasSinPuntos!=0){
-        gotoxy(44,19);
+        gotoxy(40,19);
         cout<< "Cantidad de rondas sin puntos >> "<<RondasSinPuntos;
     }
     else {
-        gotoxy(44,19);
+        gotoxy(45,19);
         cout<< "No hubo rondas sin puntos";
     }
 
     if(RondasPerdidas!=0){
-        gotoxy(43,21);
+        gotoxy(39,21);
         cout<<"Cantidad de rondas con perdidas >> "<<RondasPerdidas;
     }
     else {
-        gotoxy(43,21);
+        gotoxy(44,21);
         cout<<"No hubo rondas sin perdidas";
     }
 
@@ -776,7 +772,7 @@ void dosJugadores() {
     cout<<"Puntaje acumulado >> "<<TotalApuestaJ1;
 
      if(RondasSinPuntosJ1!=0){
-        gotoxy(43,19);
+        gotoxy(40,19);
         cout<< "Cantidad de rondas sin puntos >> "<<RondasSinPuntosJ1;
     }
     else {
@@ -785,7 +781,7 @@ void dosJugadores() {
     }
 
     if(RondasPerdidasJ1!=0){
-        gotoxy(42,21);
+        gotoxy(39,21);
         cout<<"Cantidad de rondas con perdidas >> "<<RondasPerdidasJ1;
     }
     else {
@@ -810,7 +806,7 @@ void dosJugadores() {
     cout<<"Puntaje acumulado >> "<<TotalApuestaJ2;
 
      if(RondasSinPuntosJ2!=0){
-        gotoxy(43,19);
+        gotoxy(40,19);
         cout<< "Cantidad de rondas sin puntos >> "<<RondasSinPuntosJ2;
     }
     else {
@@ -819,7 +815,7 @@ void dosJugadores() {
     }
 
     if(RondasPerdidasJ2!=0){
-        gotoxy(42,21);
+        gotoxy(39,21);
         cout<<"Cantidad de rondas con perdidas >> "<<RondasPerdidasJ2;
     }
     else {
@@ -867,153 +863,197 @@ void puntaje() {
 }
 
 void modoSimulacion() {
-int Apostar=0,
-Rondas,
-Vueltas=0,
-tirada,
-giro=5,
-dados=0,
-RondasPerdidas=0,
-Max[5],
-RondasSinPuntos=0,
-TirarDados,
-Resultado=0,
-Tiradas,
-Dados=0,
-TotalDados=0,
-TotalApuesta=0,
-MenosDados=5;
-char Nombre [30];
+    int Apostar=0,
+    Rondas,
+    Vueltas=0,
+    RondasPerdidas=0,
+    Max[5],
+    RondasSinPuntos=0,
+    TirarDados,
+    Resultado=0,
+    Tiradas,
+    Dados=0,
+    TotalDados=0,
+    agregarX=35,
+    TotalApuesta=0,
+    MenosDados=5;
+    char Nombre [30];
 
+    system("color 4F");
 
- system("color 4F");
-
-
- recuadro(6, 2, 109, 27, 15, 4);
+    recuadro(6, 2, 109, 27, 15, 4);
 
     recuadro(42, 9, 30, 4, 15, 4);
     gotoxy(50,11);
-
-cout<< "bienvenido al modo simulacion"<<endl;
- gotoxy(44,15);
- cout<< "ingrese el nombre del jugador :";
-  fflush(stdin);
-   cin.getline(Nombre,30);
+    cout<< "Modo SIMULACION";
+    gotoxy(44,15);
+    cout<< "Ingrese el nombre >> ";
+    fflush(stdin);
+    cin.getline(Nombre,30);
     gotoxy(42,17);
-   cout<< "-------------------------------------"<<endl;
-   cout<< "Ingrese cuantas rondas jugaran : ";
-   cin>> Rondas;
-   gotoxy(46,19);
-   cout<< "-------------------------------------"<<endl;
-   cout<< "ingrese cuanto va apostar : ";
-   cin>>  Apostar;
-   gotoxy(40,25);
-   system("pause");
+    cout<< "Cantidad de rondas a jugar >> ";
+    cin>> Rondas;
+    gotoxy(46,19);
+    cout<< "Ingrese apuesta >> ";
+    cin>>  Apostar;
+    gotoxy(40,25);
+    system("pause");
     system("cls");
+
+    recuadro(6, 2, 109, 27, 15, 4);
 
     for(Vueltas=1;Vueltas<=Rondas;Vueltas++){
 
-        cout<< "jugador:"<<Nombre<<endl;
-        cout<< "-------------------------------------"<<endl;
-        cout<< "ronda #"<<Vueltas<<endl;
+        for(Tiradas=0;Tiradas<5;Tiradas++){
 
-
-       for(Tiradas=1;Tiradas<=5;Tiradas++){
-           cout<< "-------------------------------------"<<endl;
-           cout<< "Tirada #"<<Tiradas<<endl;
-
-           for(TirarDados=0;TirarDados<=MenosDados;TirarDados++){
             recuadro(6, 2, 109, 27, 15, 4);
-            gotoxy(55,5);
-            cout<< "Ronda >> "<<Tiradas;
-            gotoxy(54,7);
-            cout<< "Tirada >>> "<<tirada+1;
-                    cout<< "ingrese el dado#"<<TirarDados<< ": ";
-                  cin>>Max[TirarDados];
+            gotoxy(52,5);
+            cout<< "Jugador >> "<<Nombre;
+            gotoxy(55,7);
+            cout<< "Ronda >> "<<Vueltas;
+            gotoxy(54,9);
+            cout<< "Tirada >> "<<Tiradas+1;
 
+            for(TirarDados=0;TirarDados<MenosDados;TirarDados++){
 
-                if(Max[TirarDados]>Dados){
-                    Dados=Max[TirarDados];
+                gotoxy(47,11);
+                cout<< "Ingrese el dado >> "<<TirarDados+1<< " >> ";
+                cin>>Max[TirarDados];
+
+                if(Max[TirarDados]==1){
+                    dado1(agregarX,14);
+                    agregarX=agregarX+10;
+                }
+                if(Max[TirarDados]==2){
+                    dado2(agregarX,14);
+                    agregarX=agregarX+10;
+                }
+                if(Max[TirarDados]==3){
+                    dado3(agregarX,14);
+                    agregarX=agregarX+10;
+                }
+                if(Max[TirarDados]==4){
+                    dado4(agregarX,14);
+                    agregarX=agregarX+10;
+                }
+                if(Max[TirarDados]==5){
+                    dado5(agregarX,14);
+                    agregarX=agregarX+10;
+                }
+                if(Max[TirarDados]==6){
+                    dado6(agregarX,14);
+                    agregarX=agregarX+10;
                 }
 
+                if(Max[TirarDados]>Dados){
+                Dados=Max[TirarDados];
+                }
 
-           }
-           cout<< "el maximo dado es en esta ronda  : "<<Dados<<endl;
-           TotalDados+=Dados;
-           cout<< "el total es : "<<  TotalDados <<endl;
-           Dados=0;
-           MenosDados=MenosDados-1;
-           system("pause");
-           system("cls");
-       }
+                Sleep(250);
+            }
 
-
-
-      TotalDados=0;
-      MenosDados=5;
-
-       if(TotalDados<=20){
-       cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
-       Resultado=TiroDePuntajeSimulacion(Apostar, TotalDados);
-       TotalApuesta+=Resultado;
-       cout<< "en total ganaste en esta ronda es : "<<TotalApuesta<<endl;
-        TotalDados=0;
+            gotoxy(45,20);
+            cout<< "Maximo dado de esta tirada >> "<<Dados;
+            TotalDados+=Dados;
+            gotoxy(50,22);
+            cout<< "Total de puntos >> "<<   TotalDados <<endl;
+            Dados=0;
+            MenosDados=MenosDados-1;
+            gotoxy(40,25);
             system("pause");
+            system("cls");
+            agregarX=35;
         }
 
-    else{
-            cout<< "lastima perdiste: "<<Apostar<<endl;
+        MenosDados=5;
+
+        if(TotalDados>=20){
+            system("color 4F");
+            recuadro(6, 2, 109, 27, 15, 4);
+
+            recuadro(41, 9, 35, 4, 15, 4);
+            gotoxy(45,11);
+            cout<< "Obtuviste el tiro de puntaje";
+            gotoxy(40,25);
+            system("pause");
+            system("cls");
+            Resultado=TiroDePuntajeSimulacion(Apostar, TotalDados);
+            TotalApuesta+=Resultado;
+            gotoxy(48,22);
+            cout<< Nombre << " ganaste >> "<<Resultado<< " puntos";
+            TotalDados=0;
+            gotoxy(40,25);
+            system("pause");
+            system("cls");
+        }
+        else{
+            recuadro(6, 2, 109, 27, 15, 4);
+            gotoxy(49,11);
+            cout<< "Total de puntos >> "<< TotalDados;
+            gotoxy(47,13);
+            cout<< "<< No superaste los 20 >>";
+            gotoxy(46,15);
+            cout<< "Perdiste lo apostado >> "<<Apostar;
             RondasPerdidas=RondasPerdidas+1;
             TotalApuesta=TotalApuesta-Apostar;
             Apostar=0;
             TotalDados=0;
+            gotoxy(40,25);
+            system("pause");
         }
 
-
-  if(Resultado==0){
+        if(Resultado==0){
             RondasSinPuntos=RondasSinPuntos+1;
         }
 
+        if(Vueltas!=Rondas){
+            system("color 4F");
+            recuadro(6, 2, 109, 27, 15, 4);
 
-
-
-            if(Vueltas!=Rondas){
-            cout<< "-------------------------------------"<<endl;
-            cout<< "cuanto vas a apostar en la siguiente ronda : ";
+            gotoxy(40,11);
+            cout<< "Apuesta para la siguiente ronda >> ";
             cin>> Apostar;
-             cout<< "nombre : "<<Nombre<<endl;}
-
-
+            gotoxy(40,25);
+            system("pause");
+            system("cls");
+        }
     }
 
- if(RondasSinPuntos!=0){
+    system("cls");
+
+    system("color 4F");
+    recuadro(6, 2, 109, 27, 15, 4);
+
+    recuadro(42, 9, 30, 4, 15, 4);
+    gotoxy(52,11);
+    cout<<"FIN DE JUEGO";
+    gotoxy(44,15);
+    cout<< "Gracias por jugar >> "<<Nombre;
+    gotoxy(46,17);
+    cout<<"Puntaje acumulado >> "<<TotalApuesta;
+
+    if(RondasSinPuntos!=0){
         gotoxy(44,19);
         cout<< "Cantidad de rondas sin puntos >> "<<RondasSinPuntos;
     }
     else {
-        gotoxy(44,19);
+        gotoxy(45,19);
         cout<< "No hubo rondas sin puntos";
     }
- if(RondasPerdidas==0){
-         gotoxy(44,19);
-    cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
+
+    if(RondasPerdidas!=0){
+        gotoxy(43,21);
+        cout<<"Cantidad de rondas con perdidas >> "<<RondasPerdidas;
     }
     else{
-         gotoxy(44,19);
-    cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<endl;
+        gotoxy(44,21);
+        cout<<"No hubo rondas sin perdidas";
     }
 
-    cout<<endl<< "total de rondas sin puntos es : "<<RondasSinPuntos<<endl;
-    cout<<endl<<"en total ganaste : "<<TotalApuesta<<endl;
-    cout<<endl<<"fin del juego"<<endl;
-    cout<<endl<< "gracias por jugar "<<Nombre<< "!!"<<endl;
-
-   gotoxy(40,25);
+    gotoxy(40,25);
     system("pause");
     system("cls");
     Menu();
-
-
 
 }
 
