@@ -885,17 +885,29 @@ TotalApuesta=0,
 MenosDados=5;
 char Nombre [30];
 
+
+ system("color 4F");
+
+
+ recuadro(6, 2, 109, 27, 15, 4);
+
+    recuadro(42, 9, 30, 4, 15, 4);
+    gotoxy(50,11);
+
 cout<< "bienvenido al modo simulacion"<<endl;
-
+ gotoxy(44,15);
  cout<< "ingrese el nombre del jugador :";
-
+  fflush(stdin);
    cin.getline(Nombre,30);
+    gotoxy(42,17);
    cout<< "-------------------------------------"<<endl;
    cout<< "Ingrese cuantas rondas jugaran : ";
    cin>> Rondas;
+   gotoxy(46,19);
    cout<< "-------------------------------------"<<endl;
    cout<< "ingrese cuanto va apostar : ";
    cin>>  Apostar;
+   gotoxy(40,25);
    system("pause");
     system("cls");
 
@@ -910,7 +922,12 @@ cout<< "bienvenido al modo simulacion"<<endl;
            cout<< "-------------------------------------"<<endl;
            cout<< "Tirada #"<<Tiradas<<endl;
 
-           for(TirarDados=1;TirarDados<=MenosDados;TirarDados++){
+           for(TirarDados=0;TirarDados<=MenosDados;TirarDados++){
+            recuadro(6, 2, 109, 27, 15, 4);
+            gotoxy(55,5);
+            cout<< "Ronda >> "<<Tiradas;
+            gotoxy(54,7);
+            cout<< "Tirada >>> "<<tirada+1;
                     cout<< "ingrese el dado#"<<TirarDados<< ": ";
                   cin>>Max[TirarDados];
 
@@ -969,11 +986,20 @@ cout<< "bienvenido al modo simulacion"<<endl;
 
     }
 
-
+ if(RondasSinPuntos!=0){
+        gotoxy(44,19);
+        cout<< "Cantidad de rondas sin puntos >> "<<RondasSinPuntos;
+    }
+    else {
+        gotoxy(44,19);
+        cout<< "No hubo rondas sin puntos";
+    }
  if(RondasPerdidas==0){
+         gotoxy(44,19);
     cout<<endl<< "total de rondas perdidas fue ninguna"<<endl;
     }
     else{
+         gotoxy(44,19);
     cout<< endl<<"total de rondas perdidas fue : "<<RondasPerdidas<<endl;
     }
 
@@ -982,14 +1008,10 @@ cout<< "bienvenido al modo simulacion"<<endl;
     cout<<endl<<"fin del juego"<<endl;
     cout<<endl<< "gracias por jugar "<<Nombre<< "!!"<<endl;
 
+   gotoxy(40,25);
     system("pause");
     system("cls");
-
-
-    system("pause");
-    system("cls");
-
-
+    Menu();
 
 
 
