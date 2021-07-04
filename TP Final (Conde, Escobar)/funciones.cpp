@@ -18,6 +18,79 @@ void puntaje();
 void modoSimulacion();
 void tiroDePuntajeDosJugadores();
 
+int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
+  int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
+
+    system("color 8F");
+    recuadro(6, 2, 109, 27, 15, 4);
+
+    for(i=0;i<5;i++){
+
+        gotoxy(48,7);
+        cout<< "<< Tiro de puntaje >>";
+
+        cout<< "ingrese dado#"<<i+1<< " : "<<endl;
+
+
+        if(v[i]==1){
+            dado1(agregarX,12);
+            agregarX=agregarX+10;
+        }
+        if(v[i]==2){
+            dado2(agregarX,12);
+            agregarX=agregarX+10;
+        }
+        if(v[i]==3){
+            dado3(agregarX,12);
+            agregarX=agregarX+10;
+        }
+        if(v[i]==4){
+            dado4(agregarX,12);
+            agregarX=agregarX+10;
+        }
+        if(v[i]==5){
+            dado5(agregarX,12);
+            agregarX=agregarX+10;
+        }
+        if(v[i]==6){
+            dado6(agregarX,12);
+            agregarX=agregarX+10;
+        }
+        Sleep(250);
+    }
+
+    switch (TotalDados){
+        case 20: valor=1; break;
+        case 21: valor=2; break;
+        case 22: valor=3; break;
+        case 23: valor=4; break;
+        case 24: valor=5; break;
+        default: valor=6; break;
+    }
+
+    for(i=0;i<5;i++){
+        if (v[i]==valor){
+            contador++;
+        }
+    }
+
+    if(contador!=0){
+        apuesta_mult = Apostar * contador;
+    }
+    else{
+        apuesta_mult = Apostar;
+    }
+
+
+    gotoxy(55,22);
+    cout << "Ganaste: " << apuesta_mult;
+    gotoxy(40,25);
+    system("pause");
+
+    return apuesta_mult;
+
+}
+
 int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  TotalDados){
     int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
 
@@ -864,9 +937,7 @@ cout<< "bienvenido al modo simulacion"<<endl;
 
        if(TotalDados<=20){
        cout<< "felicidades obtuviste el tiro de puntaje "<<endl;
-
-
-
+       Resultado=TiroDePuntajeSimulacion(Apostar, TotalDados);
        TotalApuesta+=Resultado;
        cout<< "en total ganaste en esta ronda es : "<<TotalApuesta<<endl;
         TotalDados=0;
