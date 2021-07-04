@@ -15,7 +15,7 @@ void Menu();
 int main() {
 
 hidecursor();
-system("color B1");
+system("color 4F");
 
 Inicio();
 Menu();
