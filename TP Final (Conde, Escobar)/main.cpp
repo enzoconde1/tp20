@@ -1,9 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <stdlib.h>
-#include <time.h>
-#include<conio.h>
-#include<stdio.h>
 #include"rlutil.h"
 
 using namespace std;
@@ -19,5 +15,6 @@ system("color 4F");
 
 Inicio();
 Menu();
+
     return 0;
 }

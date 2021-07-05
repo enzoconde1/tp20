@@ -1,22 +1,16 @@
 # depslib dependency file v1.0
-1625346199 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\main.cpp
+1625453924 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\main.cpp
 	<iostream>
 	<cstdlib>
-	<stdlib.h>
-	<time.h>
-	<conio.h>
-	<stdio.h>
 	"rlutil.h"
 
-1625431478 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones.cpp
+1625453905 source:c:\users\enzof\onedrive\documentos\utn\laboratorio\tp20\tp final (conde, escobar)\funciones.cpp
 	<iostream>
 	<cstdlib>
 	<stdlib.h>
 	<time.h>
 	"rlutil.h"
-	<conio.h>
-	<stdio.h>
-	<math.h>
+	<cstring>
 	"funciones.h"
 	"ascii.h"
 

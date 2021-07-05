@@ -1,22 +1,18 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
-#include <time.h>
-#include"rlutil.h"
-#include<conio.h>
-#include<stdio.h>
-#include<math.h>
+#include <time.h> /* para el random dado */
+#include"rlutil.h" /* graphic */
+#include <cstring> /* copiar array nombre */
 
 using namespace std;
-#include"funciones.h"
-#include"ascii.h"
-using namespace rlutil;
+#include"funciones.h" /* recuadro */
+#include"ascii.h" /* dados */
 
-void unJugador();
-void dosJugadores();
-void puntaje();
-void modoSimulacion();
-void tiroDePuntajeDosJugadores();
+int unJugador(char nombre[]);
+int dosJugadores(char NombreJ1[], char NombreJ2[]);
+void puntaje(int puntajeMax, char nombreMax[]);
+int modoSimulacion(char Nombre[]);
 
 int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
     int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
@@ -241,51 +237,130 @@ void Inicio(){
     system("cls");
 }
 
-void Menu(){
-    char input;
+int Menu(){
+    int puntajeUnJugador,
+    puntajeDosJugadores,
+    puntajeSimulacion,
+    puntajeMax;
+    char input,
+    nombre[15],
+    Nombre[15],
+    NombreJ1[15],
+    NombreJ2[15],
+    nombreMax[15];
 
-    system("color 4F");
-    recuadro(6, 2, 109, 27, 15, 4);
+    while (true) {
+        system("color 4F");
+        recuadro(6, 2, 109, 27, 15, 4);
 
-    recuadro(42, 9, 30, 4, 15, 4);
-    gotoxy(50,11);
-    cout << "Menu de Inicio";
-    gotoxy(47,15);
-    cout << "1. Modo UN JUGADOR";
-    gotoxy(47,16);
-    cout << "2. Modo DOS JUGADORES";
-    gotoxy(47,17);
-    cout << "3. Mostrar PUNTUACION";
-    gotoxy(47,18);
-    cout << "4. Modo SIMULACION";
+        recuadro(42, 9, 30, 4, 15, 4);
+        gotoxy(50,11);
+        cout << "Menu de Inicio";
+        gotoxy(47,15);
+        cout << "1. Modo UN JUGADOR";
+        gotoxy(47,16);
+        cout << "2. Modo DOS JUGADORES";
+        gotoxy(47,17);
+        cout << "3. Mostrar PUNTUACION";
+        gotoxy(47,18);
+        cout << "4. Modo SIMULACION";
+        gotoxy(47,19);
+        cout << "5. SALIR";
 
-    gotoxy(38,20);
-    cout<< "Ingrese uno de los numeros para empezar :";
-    input = getch();
+        gotoxy(38,21);
+        cout<< "Ingrese uno de los numeros para empezar :";
+        input = getch();
 
-    while(input!='1' && input!='2' && input!='3' && input!='4'){
-            system("cls");
-            system("color F4");
-            recuadro(6, 2, 109, 27, 4, 15);
-            gotoxy(54,10);
-            cout << "¡Atencion!";
-            gotoxy(43,12);
-            cout << "Ha ingresado un numero incorrecto";
-            gotoxy(40,25);
-            system("pause");
-            Menu();
+        while(input!='1' && input!='2' && input!='3' && input!='4' && input!='5'){
+                system("cls");
+                system("color F4");
+                recuadro(6, 2, 109, 27, 4, 15);
+                gotoxy(54,10);
+                cout << "¡Atencion!";
+                gotoxy(43,12);
+                cout << "Ha ingresado un numero incorrecto";
+                gotoxy(40,25);
+                system("pause");
+                Menu();
+        }
+
+        switch(input){
+                case '1':
+                    recuadro(6, 2, 109, 27, 15, 4);
+                    recuadro(42, 9, 30, 4, 15, 4);
+                    gotoxy(50,11);
+                    cout << "Modo UN JUGADOR";
+                    gotoxy(44,15);
+                    cout<< "Ingrese su nombre >> ";
+                    fflush(stdin);
+                    cin.getline(nombre,15);
+                    gotoxy(40,25);
+                    system("pause");
+                    system("cls");
+                    puntajeUnJugador = unJugador(nombre);
+                    if(puntajeUnJugador>puntajeMax){
+                        strcpy(nombreMax,nombre);
+                        puntajeMax=puntajeUnJugador;
+                    }
+                    break;
+                case '2':
+                    recuadro(6, 2, 109, 27, 15, 4);
+                    recuadro(42, 9, 30, 4, 15, 4);
+                    gotoxy(49,11);
+                    cout << "Modo DOS JUGADORES";
+                    gotoxy(39,15);
+                    cout<< "Jugador 1, ingrese su nombre >> ";
+                    fflush(stdin);
+                    cin.getline(NombreJ1,15);
+                    gotoxy(39,17);
+                    cout<< "Jugador 2, ingrese su nombre >> ";
+                    cin.getline(NombreJ2,15);
+                    gotoxy(40,25);
+                    system("pause");
+                    system("cls");
+                    puntajeDosJugadores = dosJugadores(NombreJ1, NombreJ2);
+                    if (puntajeDosJugadores < 0) {
+                        strcpy(nombreMax,NombreJ1);
+                        puntajeDosJugadores = -puntajeDosJugadores;
+                    }
+                    else {
+                        strcpy(nombreMax,NombreJ2);
+                    }
+                    if(puntajeDosJugadores>puntajeMax){
+                        puntajeMax=puntajeDosJugadores;
+                    }
+                    break;
+                case '3':
+                    puntaje(puntajeMax, nombreMax);
+                    break;
+                case '4':
+                    recuadro(6, 2, 109, 27, 15, 4);
+                    recuadro(42, 9, 30, 4, 15, 4);
+                    gotoxy(50,11);
+                    cout << "Modo SIMULACION";
+                    gotoxy(44,15);
+                    cout<< "Ingrese el nombre >> ";
+                    fflush(stdin);
+                    cin.getline(Nombre,15);
+                    gotoxy(40,25);
+                    system("pause");
+                    system("cls");
+                    puntajeSimulacion = modoSimulacion(Nombre);
+                    if(puntajeSimulacion>puntajeMax){
+                        strcpy(nombreMax,Nombre);
+                        puntajeMax=puntajeSimulacion;
+                    }
+                    break;
+                case '5':
+                    system("cls");
+                    exit(EXIT_SUCCESS);
+        }
     }
 
-    switch(input){
-            case '1': unJugador(); break;
-            case '2': dosJugadores(); break;
-            case '3': puntaje(); break;
-            case '4': modoSimulacion() ; break;
-    }
-
+    return puntajeMax;
 }
 
-void unJugador() {
+int unJugador(char nombre[]) {
     int apuesta,
     rondas,
     vueltas,
@@ -300,7 +375,6 @@ void unJugador() {
     RondasPerdidas=0,
     resultado,
     TotalApuesta=0;
-    char nombre[15];
 
     srand(time(NULL));
 
@@ -310,15 +384,11 @@ void unJugador() {
 
     recuadro(42, 9, 30, 4, 15, 4);
     gotoxy(50,11);
-    cout << "Modo UN JUGADOR" << endl;
-    gotoxy(44,15);
-    cout<< "Ingrese su nombre >> ";
-    fflush(stdin);
-    cin.getline(nombre,15);
-    gotoxy(42,17);
+    cout << "Modo UN JUGADOR";
+    gotoxy(42,15);
     cout<< "Cantidad de rondas a jugar >> ";
     cin>> rondas;
-    gotoxy(46,19);
+    gotoxy(46,17);
     cout<< "Ingrese apuesta >> ";
     cin>> apuesta;
     gotoxy(40,25);
@@ -475,10 +545,11 @@ void unJugador() {
     gotoxy(40,25);
     system("pause");
     system("cls");
-    Menu();
+
+    return TotalApuesta;
 }
 
-void dosJugadores() {
+int dosJugadores(char NombreJ1[], char NombreJ2[]) {
     int Rondas,
     Puestos,
     RondasPerdidasJ1=0,
@@ -487,6 +558,7 @@ void dosJugadores() {
     RondasSinPuntosJ1=0,
     RondasSinPuntosJ2=0,
     TirarDados,
+    totalDosJugadores,
     ApostarJ1,
     ApostarJ2,
     agregarX=35,
@@ -498,8 +570,6 @@ void dosJugadores() {
     TotalApuestaJ1=0,
     TotalApuestaJ2=0,
     Vueltas=5;
-    char NombreJ1[15],
-    NombreJ2[15];
 
     srand(time(NULL));
 
@@ -510,20 +580,13 @@ void dosJugadores() {
     recuadro(42, 9, 30, 4, 15, 4);
     gotoxy(49,11);
     cout<< "Modo DOS JUGADORES";
-    gotoxy(39,15);
-    cout<< "Jugador 1, ingrese su nombre >> ";
-    fflush(stdin);
-    cin.getline(NombreJ1,15);
-    gotoxy(39,17);
-    cout<< "Jugador 2, ingrese su nombre >> ";
-    cin.getline(NombreJ2,15);
-    gotoxy(42,19);
+    gotoxy(42,15);
     cout<< "Cantidad de rondas a jugar >> ";
     cin>> Rondas;
-    gotoxy(43,21);
+    gotoxy(43,17);
     cout<< "Ingrese apuesta de " << NombreJ1 << " >> ";
     cin>>  ApostarJ1;
-    gotoxy(43,23);
+    gotoxy(43,19);
     cout<< "Ingrese apuesta de " << NombreJ2 << " >> ";
     cin>> ApostarJ2;
     gotoxy(40,25);
@@ -842,6 +905,7 @@ void dosJugadores() {
         cout<< "El ganador fue >> "<<NombreJ1;
         gotoxy(49,16);
         cout<< "Con >> "<<TotalApuestaJ1 << " puntos";
+        totalDosJugadores = -TotalApuestaJ1;
     }
     else{
         recuadro(42, 9, 30, 4, 15, 4);
@@ -849,20 +913,35 @@ void dosJugadores() {
         cout<< "El ganador fue >> "<<NombreJ2;
         gotoxy(49,16);
         cout<< "Con >> "<<TotalApuestaJ2 << " puntos";
+        totalDosJugadores = TotalApuestaJ2;
     }
 
     gotoxy(40,25);
     system("pause");
     system("cls");
-    Menu();
+
+    return totalDosJugadores;
 }
 
-void puntaje() {
-    cout << "hola3";
+void puntaje(int puntajeMax, char nombreMax[]) {
 
+    system("color 4F");
+
+    recuadro(6, 2, 109, 27, 15, 4);
+
+    recuadro(42, 9, 30, 4, 15, 4);
+    gotoxy(50,11);
+    cout << "Puntaje mas alto";
+    gotoxy(48,15);
+    cout<< "Lo obtuvo >> " << nombreMax;
+    gotoxy(49,17);
+    cout<< "Con >> "<< puntajeMax << " puntos";
+    gotoxy(40,25);
+    system("pause");
+    system("cls");
 }
 
-void modoSimulacion() {
+int modoSimulacion(char Nombre[]) {
     int Apostar=0,
     Rondas,
     Vueltas=0,
@@ -877,7 +956,6 @@ void modoSimulacion() {
     agregarX=35,
     TotalApuesta=0,
     MenosDados=5;
-    char Nombre [30];
 
     system("color 4F");
 
@@ -886,14 +964,10 @@ void modoSimulacion() {
     recuadro(42, 9, 30, 4, 15, 4);
     gotoxy(50,11);
     cout<< "Modo SIMULACION";
-    gotoxy(44,15);
-    cout<< "Ingrese el nombre >> ";
-    fflush(stdin);
-    cin.getline(Nombre,30);
-    gotoxy(42,17);
+    gotoxy(42,15);
     cout<< "Cantidad de rondas a jugar >> ";
     cin>> Rondas;
-    gotoxy(46,19);
+    gotoxy(46,17);
     cout<< "Ingrese apuesta >> ";
     cin>>  Apostar;
     gotoxy(40,25);
@@ -1053,8 +1127,8 @@ void modoSimulacion() {
     gotoxy(40,25);
     system("pause");
     system("cls");
-    Menu();
 
+    return TotalApuesta;
 }
 
 
