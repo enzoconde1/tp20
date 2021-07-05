@@ -32,9 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ascii.h" />
 		<Unit filename="funciones.cpp" />
 		<Unit filename="funciones.h" />
-		<Unit filename="funciones2.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rlutil.h" />
 		<Extensions>
