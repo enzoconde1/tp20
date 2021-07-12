@@ -275,8 +275,8 @@ int Menu(){
                 system("cls");
                 system("color F4");
                 recuadro(6, 2, 109, 27, 4, 15);
-                gotoxy(54,10);
-                cout << "¡Atencion!";
+                gotoxy(52,10);
+                cout << "<< Atencion >>";
                 gotoxy(43,12);
                 cout << "Ha ingresado un numero incorrecto";
                 gotoxy(40,25);
