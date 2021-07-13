@@ -241,13 +241,13 @@ int Menu(){
     int puntajeUnJugador,
     puntajeDosJugadores,
     puntajeSimulacion,
-    puntajeMax;
+    puntajeMax=0;
     char input,
     nombre[15],
     Nombre[15],
     NombreJ1[15],
     NombreJ2[15],
-    nombreMax[15];
+    nombreMax[15]={ };
 
     while (true) {
         system("color 4F");
