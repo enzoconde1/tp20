@@ -20,11 +20,22 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
 
+     switch (TotalDados){
+        case 20: valor=1; break;
+        case 21: valor=2; break;
+        case 22: valor=3; break;
+        case 23: valor=4; break;
+        case 24: valor=5; break;
+        default: valor=6; break;
+    }
+
     for(i=0;i<5;i++){
 
-        gotoxy(48,7);
-        cout<< "<< Tiro de puntaje >>";
-        gotoxy(46,9);
+        gotoxy(48,6);
+        cout<< "<< Tiro de puntaje >>"<<endl;
+        gotoxy(40,8);
+        cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
+        gotoxy(48,10);
         cout<< "Ingrese el dado >> "<<i+1<< " >> ";
         cin >> v[i];
 
@@ -55,14 +66,6 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
         Sleep(250);
     }
 
-    switch (TotalDados){
-        case 20: valor=1; break;
-        case 21: valor=2; break;
-        case 22: valor=3; break;
-        case 23: valor=4; break;
-        case 24: valor=5; break;
-        default: valor=6; break;
-    }
 
     for(i=0;i<5;i++){
         if (v[i]==valor){
@@ -87,12 +90,22 @@ int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  To
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
 
+ switch (TotalDados){
+        case 20: valor=1; break;
+        case 21: valor=2; break;
+        case 22: valor=3; break;
+        case 23: valor=4; break;
+        case 24: valor=5; break;
+        default: valor=6; break;
+    }
 
     for(i=0;i<5;i++){
         v[i]= (rand()%6)+1;
 
         gotoxy(48,7);
-        cout<< "<< Tiro de puntaje >>";
+        cout<< "<< Tiro de puntaje >>"<<endl;
+        gotoxy(40,9);
+        cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
 
         if(v[i]==1){
             dado1(agregarX,12);
@@ -121,14 +134,7 @@ int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  To
         Sleep(250);
     }
 
-    switch (TotalDados){
-        case 20: valor=1; break;
-        case 21: valor=2; break;
-        case 22: valor=3; break;
-        case 23: valor=4; break;
-        case 24: valor=5; break;
-        default: valor=6; break;
-    }
+
 
     for(i=0;i<5;i++){
         if (v[i]==valor){
@@ -138,18 +144,11 @@ int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  To
 
     if(Puestos%2==0){
 
-        if(contador!=0){
             apuesta_mult = ApostarJ2 * contador;
-        }
-        else{
-        apuesta_mult = ApostarJ2;
-        }
+
     }
-    else if(contador!=0){
+    else {
         apuesta_mult = ApostarJ1 * contador;
-    }
-    else{
-        apuesta_mult = ApostarJ1;
     }
 
     return apuesta_mult;
@@ -160,11 +159,20 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
 
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
-
+    switch (Total){
+        case 20: valor=1;break;
+        case 21: valor=2; break;
+        case 22: valor=3; break;
+        case 23: valor=4; break;
+        case 24: valor=5; break;
+        default: valor=6; break;
+    }
     for(i=0;i<5;i++){
 
         gotoxy(49,7);
-        cout<< "<< Tiro de puntaje >>";
+        cout<< "<< Tiro de puntaje >>"<<endl;
+        gotoxy(40,9);
+        cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
 
         v[i]= (rand()%6)+1;
 
@@ -195,14 +203,7 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
         Sleep(250);
     }
 
-    switch (Total){
-        case 20: valor=1; break;
-        case 21: valor=2; break;
-        case 22: valor=3; break;
-        case 23: valor=4; break;
-        case 24: valor=5; break;
-        default: valor=6; break;
-    }
+
 
     for(i=0;i<5;i++){
         if (v[i]==valor){
@@ -210,12 +211,8 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
         }
     }
 
-    if(contador!=0){
+
         apuesta_mult = apuesta * contador;
-    }
-    else{
-        apuesta_mult = apuesta;
-    }
 
 
     gotoxy(55,22);

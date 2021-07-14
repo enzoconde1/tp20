@@ -17,19 +17,25 @@
 			<Cursor1 position="3870" topLine="516" />
 		</Cursor>
 	</File>
-	<File name="funciones.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="12" zoom_2="0">
+	<File name="ascii.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6444" topLine="60" />
+			<Cursor1 position="0" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="funciones.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="27496" topLine="5" />
 		</Cursor>
 		<Folding>
 			<Collapse line="16" />
 			<Collapse line="83" />
 			<Collapse line="157" />
+			<Collapse line="228" />
+			<Collapse line="239" />
+			<Collapse line="362" />
+			<Collapse line="551" />
+			<Collapse line="925" />
+			<Collapse line="943" />
 		</Folding>
-	</File>
-	<File name="ascii.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="2" />
-		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

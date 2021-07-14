@@ -100,3 +100,22 @@
 	<sys/types.h>
 	<sys/time.h>
 
+1625844783 source:c:\users\feder\onedrive\escritorio\todo facultad\laboratorio de computacion\laboratorio de computacion 1 parte 1\tp20\tp final (conde, escobar)\main.cpp
+	<iostream>
+	<cstdlib>
+	"rlutil.h"
+
+1625844783 c:\users\feder\onedrive\escritorio\todo facultad\laboratorio de computacion\laboratorio de computacion 1 parte 1\tp20\tp final (conde, escobar)\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
