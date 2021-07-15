@@ -73,12 +73,11 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
         }
     }
 
-    if(contador!=0){
-        apuesta_mult = Apostar * contador;
-    }
-    else{
-        apuesta_mult = Apostar;
-    }
+
+    apuesta_mult = Apostar * contador;
+
+
+
 
     return apuesta_mult;
 
