@@ -13,7 +13,41 @@ int unJugador(char nombre[]);
 int dosJugadores(char NombreJ1[], char NombreJ2[]);
 void puntaje(int puntajeMax, char nombreMax[]);
 int modoSimulacion(char Nombre[]);
+int DadosAelatorio(int v[],int i);
 
+
+int DadosAelatorio(int v[],int i,int agregarX){
+
+     v[i]= (rand()%6)+1;
+
+                if(v[i]==1){
+                    dado1(agregarX,12);
+                    agregarX=agregarX+10;
+                }
+                if(v[i]==2){
+                    dado2(agregarX,12);
+                    agregarX=agregarX+10;
+                }
+                if(v[i]==3){
+                    dado3(agregarX,12);
+                    agregarX=agregarX+10;
+                }
+                if(v[i]==4){
+                    dado4(agregarX,12);
+                    agregarX=agregarX+10;
+                }
+                if(v[i]==5){
+                    dado5(agregarX,12);
+                    agregarX=agregarX+10;
+                }
+                if(v[i]==6){
+                    dado6(agregarX,12);
+                    agregarX=agregarX+10;
+                }
+
+                return v[i];
+
+}
 int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
     int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
 
@@ -406,32 +440,9 @@ int unJugador(char nombre[]) {
             cout<< "Tirada >>> "<<tirada+1;
 
             for(i=0;i<giro;i++){
-                v[i]= (rand()%6)+1;
 
-                if(v[i]==1){
-                    dado1(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(v[i]==2){
-                    dado2(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(v[i]==3){
-                    dado3(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(v[i]==4){
-                    dado4(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(v[i]==5){
-                    dado5(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(v[i]==6){
-                    dado6(agregarX,12);
-                    agregarX=agregarX+10;
-                }
+               DadosAelatorio(v, i, agregarX);
+               agregarX=agregarX+10;
 
                 if(v[i]>dados){
                     dados=v[i];
@@ -439,7 +450,7 @@ int unJugador(char nombre[]) {
 
                 Sleep(250);
             }
-
+       agregarX=35;
             gotoxy(45,20);
             cout<< "Maximo dado de esta tirada >> "<<dados;
             Total=Total+dados;
