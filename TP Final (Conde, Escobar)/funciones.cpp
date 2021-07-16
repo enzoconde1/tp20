@@ -13,43 +13,76 @@ int unJugador(char nombre[]);
 int dosJugadores(char NombreJ1[], char NombreJ2[]);
 void puntaje(int puntajeMax, char nombreMax[]);
 int modoSimulacion(char Nombre[]);
-int DadosAelatorio(int v[],int i);
+int DadosAelatorio(int Max[],int TirarDados,int agregarX);
+int DadosAelatorioSimulacion(int Max[],int TirarDados, int agregarX);
 
+int DadosAelatorioSimulacion(int Max[],int TirarDados,int agregarX){
 
-int DadosAelatorio(int v[],int i,int agregarX){
+     cin>>Max[TirarDados];
 
-     v[i]= (rand()%6)+1;
-
-                if(v[i]==1){
+                if(Max[TirarDados]==1){
                     dado1(agregarX,12);
                     agregarX=agregarX+10;
                 }
-                if(v[i]==2){
+                if(Max[TirarDados]==2){
                     dado2(agregarX,12);
                     agregarX=agregarX+10;
                 }
-                if(v[i]==3){
+                if(Max[TirarDados]==3){
                     dado3(agregarX,12);
                     agregarX=agregarX+10;
                 }
-                if(v[i]==4){
+                if(Max[TirarDados]==4){
                     dado4(agregarX,12);
-                    agregarX=agregarX+10;
+
                 }
-                if(v[i]==5){
+                if(Max[TirarDados]==5){
                     dado5(agregarX,12);
                     agregarX=agregarX+10;
                 }
-                if(v[i]==6){
+                if(Max[TirarDados]==6){
                     dado6(agregarX,12);
                     agregarX=agregarX+10;
                 }
 
-                return v[i];
+                return Max[TirarDados];
+}
+
+int DadosAelatorio(int Max[],int TirarDados,int agregarX){
+
+
+    Max[TirarDados]= (rand()%6)+1;
+
+                if(Max[TirarDados]==1){
+                    dado1(agregarX,12);
+
+                }
+                if(Max[TirarDados]==2){
+                    dado2(agregarX,12);
+
+                }
+                if(Max[TirarDados]==3){
+                    dado3(agregarX,12);
+
+                }
+                if(Max[TirarDados]==4){
+                    dado4(agregarX,12);
+
+                }
+                if(Max[TirarDados]==5){
+                    dado5(agregarX,12);
+
+                }
+                if(Max[TirarDados]==6){
+                    dado6(agregarX,12);
+
+                }
+
+                return Max[TirarDados];
 
 }
 int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
-    int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
+    int Max[5],TirarDados, valor, contador=0, apuesta_mult, agregarX=35;
 
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
@@ -63,46 +96,24 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
         default: valor=6; break;
     }
 
-    for(i=0;i<5;i++){
+    for(TirarDados=0;TirarDados<5;TirarDados++){
 
         gotoxy(48,6);
         cout<< "<< Tiro de puntaje >>"<<endl;
         gotoxy(40,8);
         cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
         gotoxy(48,10);
-        cout<< "Ingrese el dado >> "<<i+1<< " >> ";
-        cin >> v[i];
+        cout<< "Ingrese el dado >> "<<TirarDados+1<< " >> ";
 
-        if(v[i]==1){
-            dado1(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==2){
-            dado2(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==3){
-            dado3(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==4){
-            dado4(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==5){
-            dado5(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==6){
-            dado6(agregarX,12);
-            agregarX=agregarX+10;
-        }
+        DadosAelatorioSimulacion(Max, TirarDados, agregarX);
+               agregarX=agregarX+10;
+
         Sleep(250);
     }
 
 
-    for(i=0;i<5;i++){
-        if (v[i]==valor){
+    for(TirarDados=0;TirarDados<5;TirarDados++){
+        if (Max[TirarDados]==valor){
             contador++;
         }
     }
@@ -118,7 +129,7 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
 }
 
 int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  TotalDados){
-    int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
+    int Max[5],TirarDados, valor, contador=0, apuesta_mult, agregarX=35;
 
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
@@ -132,45 +143,24 @@ int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  To
         default: valor=6; break;
     }
 
-    for(i=0;i<5;i++){
-        v[i]= (rand()%6)+1;
+    for(TirarDados=0;TirarDados<5;TirarDados++){
+
 
         gotoxy(48,7);
         cout<< "<< Tiro de puntaje >>"<<endl;
         gotoxy(40,9);
         cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
 
-        if(v[i]==1){
-            dado1(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==2){
-            dado2(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==3){
-            dado3(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==4){
-            dado4(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==5){
-            dado5(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==6){
-            dado6(agregarX,12);
-            agregarX=agregarX+10;
-        }
+         DadosAelatorio(Max, TirarDados, agregarX);
+               agregarX=agregarX+10;
+
         Sleep(250);
     }
 
 
 
-    for(i=0;i<5;i++){
-        if (v[i]==valor){
+    for(TirarDados=0;TirarDados<5;TirarDados++){
+        if (Max[TirarDados]==valor){
             contador++;
         }
     }
@@ -188,7 +178,7 @@ int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  To
 }
 
 int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
-    int v[5],i, valor, contador=0, apuesta_mult, agregarX=35;
+    int Max[5],TirarDados, valor, contador=0, apuesta_mult, agregarX=35;
 
     system("color 8F");
     recuadro(6, 2, 109, 27, 15, 4);
@@ -200,46 +190,24 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
         case 24: valor=5; break;
         default: valor=6; break;
     }
-    for(i=0;i<5;i++){
+    for(TirarDados=0;TirarDados<5;TirarDados++){
 
         gotoxy(49,7);
         cout<< "<< Tiro de puntaje >>"<<endl;
         gotoxy(40,9);
         cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
 
-        v[i]= (rand()%6)+1;
+        DadosAelatorio(Max, TirarDados, agregarX);
+               agregarX=agregarX+10;
 
-        if(v[i]==1){
-            dado1(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==2){
-            dado2(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==3){
-            dado3(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==4){
-            dado4(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==5){
-            dado5(agregarX,12);
-            agregarX=agregarX+10;
-        }
-        if(v[i]==6){
-            dado6(agregarX,12);
-            agregarX=agregarX+10;
-        }
+
         Sleep(250);
     }
 
 
 
-    for(i=0;i<5;i++){
-        if (v[i]==valor){
+    for(TirarDados=0;TirarDados<5;TirarDados++){
+        if (Max[TirarDados]==valor){
             contador++;
         }
     }
@@ -397,8 +365,8 @@ int unJugador(char nombre[]) {
     tirada,
     giro=5,
     dados=0,
-    v[5],
-    i,
+    Max[5],
+    TirarDados,
     agregarX=35,
     Total=0,
     RondasSinPuntos=0,
@@ -439,13 +407,13 @@ int unJugador(char nombre[]) {
             gotoxy(54,9);
             cout<< "Tirada >>> "<<tirada+1;
 
-            for(i=0;i<giro;i++){
+            for(TirarDados=0;TirarDados<giro;TirarDados++){
 
-               DadosAelatorio(v, i, agregarX);
+               DadosAelatorio(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
-                if(v[i]>dados){
-                    dados=v[i];
+                if(Max[TirarDados]>dados){
+                    dados=Max[TirarDados];
                 }
 
                 Sleep(250);
@@ -614,32 +582,8 @@ int dosJugadores(char NombreJ1[], char NombreJ2[]) {
 
             for(TirarDados=0;TirarDados<MenosDados;TirarDados++){
 
-                Max[TirarDados]= (rand()%6)+1;
-
-                if(Max[TirarDados]==1){
-                    dado1(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==2){
-                    dado2(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==3){
-                    dado3(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==4){
-                    dado4(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==5){
-                    dado5(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==6){
-                    dado6(agregarX,12);
-                    agregarX=agregarX+10;
-                }
+                DadosAelatorio(Max, TirarDados, agregarX);
+               agregarX=agregarX+10;
 
                 if(Max[TirarDados]>Dados){
                     Dados=Max[TirarDados];
@@ -720,32 +664,8 @@ int dosJugadores(char NombreJ1[], char NombreJ2[]) {
 
             for(TirarDados=0;TirarDados<MenosDados;TirarDados++){
 
-                Max[TirarDados]= (rand()%6)+1;
-
-                if(Max[TirarDados]==1){
-                    dado1(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==2){
-                    dado2(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==3){
-                    dado3(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==4){
-                    dado4(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==5){
-                    dado5(agregarX,12);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==6){
-                    dado6(agregarX,12);
-                    agregarX=agregarX+10;
-                }
+               DadosAelatorio(Max, TirarDados, agregarX);
+               agregarX=agregarX+10;
 
                 if(Max[TirarDados]>Dados){
                     Dados=Max[TirarDados];
@@ -999,32 +919,9 @@ int modoSimulacion(char Nombre[]) {
 
                 gotoxy(47,11);
                 cout<< "Ingrese el dado >> "<<TirarDados+1<< " >> ";
-                cin>>Max[TirarDados];
 
-                if(Max[TirarDados]==1){
-                    dado1(agregarX,14);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==2){
-                    dado2(agregarX,14);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==3){
-                    dado3(agregarX,14);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==4){
-                    dado4(agregarX,14);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==5){
-                    dado5(agregarX,14);
-                    agregarX=agregarX+10;
-                }
-                if(Max[TirarDados]==6){
-                    dado6(agregarX,14);
-                    agregarX=agregarX+10;
-                }
+                DadosAelatorioSimulacion(Max, TirarDados, agregarX);
+               agregarX=agregarX+10;
 
                 if(Max[TirarDados]>Dados){
                 Dados=Max[TirarDados];
