@@ -13,10 +13,10 @@ int unJugador(char nombre[]);
 int dosJugadores(char NombreJ1[], char NombreJ2[]);
 void puntaje(int puntajeMax, char nombreMax[]);
 int modoSimulacion(char Nombre[]);
-int DadosAelatorio(int Max[],int TirarDados,int agregarX);
-int DadosAelatorioSimulacion(int Max[],int TirarDados, int agregarX);
+int DadosAleatorio(int Max[],int TirarDados,int agregarX);
+int DadosAleatorioSimulacion(int Max[],int TirarDados, int agregarX);
 
-int DadosAelatorioSimulacion(int Max[],int TirarDados,int agregarX){
+int DadosAleatorioSimulacion(int Max[],int TirarDados,int agregarX){
 
      cin>>Max[TirarDados];
 
@@ -48,7 +48,7 @@ int DadosAelatorioSimulacion(int Max[],int TirarDados,int agregarX){
                 return Max[TirarDados];
 }
 
-int DadosAelatorio(int Max[],int TirarDados,int agregarX){
+int DadosAleatorio(int Max[],int TirarDados,int agregarX){
 
 
     Max[TirarDados]= (rand()%6)+1;
@@ -78,9 +78,10 @@ int DadosAelatorio(int Max[],int TirarDados,int agregarX){
 
                 }
 
-                return Max[TirarDados];
+    return Max[TirarDados];
 
 }
+
 int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
     int Max[5],TirarDados, valor, contador=0, apuesta_mult, agregarX=35;
 
@@ -105,7 +106,7 @@ int TiroDePuntajeSimulacion(int Apostar, int TotalDados){
         gotoxy(48,10);
         cout<< "Ingrese el dado >> "<<TirarDados+1<< " >> ";
 
-        DadosAelatorioSimulacion(Max, TirarDados, agregarX);
+        DadosAleatorioSimulacion(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
         Sleep(250);
@@ -151,7 +152,7 @@ int tiroDePuntajeDosJugadores(int ApostarJ1, int ApostarJ2, int Puestos, int  To
         gotoxy(40,9);
         cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
 
-         DadosAelatorio(Max, TirarDados, agregarX);
+         DadosAleatorio(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
         Sleep(250);
@@ -197,7 +198,7 @@ int tiroDePuntaje(int Total, int apuesta, int TotalApuesta){
         gotoxy(40,9);
         cout<< "<< El numero que se repetiria es el "<<valor<<" >> "<<endl;
 
-        DadosAelatorio(Max, TirarDados, agregarX);
+        DadosAleatorio(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
 
@@ -409,7 +410,7 @@ int unJugador(char nombre[]) {
 
             for(TirarDados=0;TirarDados<giro;TirarDados++){
 
-               DadosAelatorio(Max, TirarDados, agregarX);
+               DadosAleatorio(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
                 if(Max[TirarDados]>dados){
@@ -418,7 +419,7 @@ int unJugador(char nombre[]) {
 
                 Sleep(250);
             }
-       agregarX=35;
+
             gotoxy(45,20);
             cout<< "Maximo dado de esta tirada >> "<<dados;
             Total=Total+dados;
@@ -582,8 +583,8 @@ int dosJugadores(char NombreJ1[], char NombreJ2[]) {
 
             for(TirarDados=0;TirarDados<MenosDados;TirarDados++){
 
-                DadosAelatorio(Max, TirarDados, agregarX);
-               agregarX=agregarX+10;
+                DadosAleatorio(Max, TirarDados, agregarX);
+                agregarX=agregarX+10;
 
                 if(Max[TirarDados]>Dados){
                     Dados=Max[TirarDados];
@@ -664,7 +665,7 @@ int dosJugadores(char NombreJ1[], char NombreJ2[]) {
 
             for(TirarDados=0;TirarDados<MenosDados;TirarDados++){
 
-               DadosAelatorio(Max, TirarDados, agregarX);
+               DadosAleatorio(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
                 if(Max[TirarDados]>Dados){
@@ -920,7 +921,7 @@ int modoSimulacion(char Nombre[]) {
                 gotoxy(47,11);
                 cout<< "Ingrese el dado >> "<<TirarDados+1<< " >> ";
 
-                DadosAelatorioSimulacion(Max, TirarDados, agregarX);
+                DadosAleatorioSimulacion(Max, TirarDados, agregarX);
                agregarX=agregarX+10;
 
                 if(Max[TirarDados]>Dados){
