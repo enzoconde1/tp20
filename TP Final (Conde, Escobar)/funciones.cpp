@@ -270,18 +270,6 @@ int Menu(){
         cout<< "Ingrese uno de los numeros para empezar :";
         input = getch();
 
-        while(input!='1' && input!='2' && input!='3' && input!='4' && input!='5'){
-                system("cls");
-                system("color F4");
-                recuadro(6, 2, 109, 27, 4, 15);
-                gotoxy(52,10);
-                cout << "<< Atencion >>";
-                gotoxy(43,12);
-                cout << "Ha ingresado un numero incorrecto";
-                gotoxy(40,25);
-                system("pause");
-                Menu();
-        }
 
         switch(input){
                 case '1':
@@ -353,6 +341,20 @@ int Menu(){
                 case '5':
                     system("cls");
                     exit(EXIT_SUCCESS);
+                    break;
+                default:
+                    system("cls");
+                    system("color F4");
+                    recuadro(6, 2, 109, 27, 4, 15);
+                    gotoxy(52,10);
+                    cout << "<< Atencion >>";
+                    gotoxy(43,12);
+                    cout << "Ha ingresado un numero incorrecto";
+                    gotoxy(40,25);
+                    system("pause");
+                    Menu();
+                    break;
+
         }
     }
 
